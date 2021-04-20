@@ -1,0 +1,42 @@
+{
+    "tasks": [
+        //
+        // -----------------------------------------------------------------------------------------
+        {
+            "label": "C/C++: make",
+            "type": "shell",
+            "windows":{    // --- windows configuration
+                "command": "mingw32-make",
+            },
+            "linux":{      // --- linux configuration
+                "command": "make",
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "dependsOn": ["C/C++: make clean"]
+        },
+        //
+        // -----------------------------------------------------------------------------------------
+        {
+            "label": "C/C++: make clean",
+            "type": "shell",
+            "windows":{    // --- windows configuration
+                "command": "mingw32-make clean",
+            },
+            "linux":{      // --- linux configuration
+                "command": "make clean",
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

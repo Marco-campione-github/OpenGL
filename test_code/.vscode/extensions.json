@@ -1,0 +1,7 @@
+// VS Code extensions recommendations
+{
+    "recommendations": [
+        // C/C++
+        "ms-vscode.cpptools"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    //
+    //----------------------------------------------------------------------------------------------
+    // Environment
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    //
+    //----------------------------------------------------------------------------------------------
+    // Code formatting rules
+    "editor.formatOnSave": true,
+    "json.format.enable": false,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+    },
+    "files.trimTrailingWhitespace": true,
+    //
+    //----------------------------------------------------------------------------------------------
+    // Editor interface settings
+    "editor.rulers": [  // vertical rulers
+        100, 120
+    ],
+}

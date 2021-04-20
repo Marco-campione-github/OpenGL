@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+	<body>
+		<!-- The physical size of the canvas is 800x500 -->
+		<!-- The logical size of the canvas is 80x50 -->
+		<canvas id="canvas" width="800" height="500"></canvas>
+	</body>
+	
+	<!-- Include additional scrips -->
+	<script src="matvect.js"></script>
+	<script src="framework.js"></script>
+	<script src="transform.js"></script>
+	<script src="drawing.js"></script>
+	<script src="scene.js"></script>
+
+	
+	<!-- INITIALIZATION -->
+	<script type="text/javascript">
+		// First instruction (REQUIRED!)
+		initialize();
+	</script>
+	
+		
+	<!-- MAIN -->
+	<script type="text/javascript">
+		
+		function test_points() {
+			
+			// define points
+			var p1 = point2D(0,0);
+			var p2 = point2D(5,5);
+			var p3 = point2D(5,0);
+		
+			// Draw points
+			draw_point(p1,rgb(255,0,0));
+			draw_point(p2,rgb(230,0,0));
+			draw_point(p3,rgb(200,0,0));
+
+			// Define transformation matrix
+			var m = m_rotation2D(30);
+	
+			// Transform points
+			var p11 = prodmv(m,p1);
+			var p22 = prodmv(m,p2);
+			var p33 = prodmv(m,p3);
+
+			// Draw new points
+			draw_point(pround(p11),rgb(0,255,0));
+			draw_point(pround(p22),rgb(0,230,0));
+			draw_point(pround(p33),rgb(0,200,0));
+
+			// Draw arrows between corresponding points
+			draw_arrow_p(p1,p11);
+			draw_arrow_p(p2,p22);
+			draw_arrow_p(p3,p33);		
+		}
+
+		function test_scene() {
+			// Define a scene of primitives (JSON format)
+			var scene=[
+				{"type":"point","p":point2D(15,25),"color":rgb(255,0,0)},
+				{"type":"point","p":point2D(25,25),"color":rgb(255,0,0)},
+				{"type":"line","p1":point2D(15,15),"p2":point2D(20,13),"color":rgb(0,0,0)},
+				{"type":"line","p1":point2D(20,13),"p2":point2D(25,15),"color":rgb(0,0,0)},
+				{"type":"circle","c":point2D(20,20),"r":13,"color":rgb(0,0,0)},
+				{"type":"circle","c":point2D(15,25),"r":2,"color":rgb(0,0,0)},
+				{"type":"circle","c":point2D(25,25),"r":2,"color":rgb(0,0,0)}
+			];
+
+			// Draw the scene
+			draw_scene(scene);
+			
+		}
+
+		function test_line() {
+			draw_line(point2D(20,20),point2D(1,1),rgb(255.0,0,0));
+			draw_line(point2D(25,25),point2D(40,1),rgb(0,255,0));
+			draw_line(point2D(23,23),point2D(40,40),rgb(0,0,255));
+		}
+
+		function test_circle() {
+			draw_circle(point2D(20,20),13,rgb(255.0,0,0));
+		}
+		
+//		test_points();
+//		test_line();
+//		test_circle();
+		test_scene();
+
+	</script>
+	
+</html>

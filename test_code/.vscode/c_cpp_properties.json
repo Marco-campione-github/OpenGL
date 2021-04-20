@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                //"${workspaceFolder}/libs/**",
+                "${workspaceFolder}/glew/include/**",
+                "${workspaceFolder}/freeglut/include/**",
+                "${workspaceFolder}/glm/**"
+            ],
+            "compilerPath": "g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x86"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                // "${workspaceFolder}/libs/**"
+                "/usr/include/**",
+                "/usr/local/include/**"
+            ],
+            "compilerPath": "g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
