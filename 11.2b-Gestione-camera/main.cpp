@@ -25,8 +25,8 @@
 */
 struct global_struct {
 
-    int WINDOW_WIDTH  = 1920; // Larghezza della finestra 
-    int WINDOW_HEIGHT = 1080; // Altezza della finestra
+    int WINDOW_WIDTH  = 1366; // Larghezza della finestra 
+    int WINDOW_HEIGHT = 768; // Altezza della finestra
 
     GLuint VAO; // Vertex Array Object
 
