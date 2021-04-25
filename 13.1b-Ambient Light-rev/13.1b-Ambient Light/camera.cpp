@@ -155,6 +155,8 @@ bool Camera::onMouse(int x, int y) {
   float xoffset = x - _mouse_lastX;
   float yoffset = _mouse_lastY - y;
 
+  if (xoffset + yoffset == 0) return false;
+
   if (!_lock_mouse_position) { 
   	_mouse_lastX = x;
   	_mouse_lastY = y;

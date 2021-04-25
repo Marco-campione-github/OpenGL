@@ -29,11 +29,11 @@ void Camera::reset() {
 	_lookat_dir = glm::vec3(0,0,-1);
 	_up         = glm::vec3(0,1,0);
 
-	_pitch_deg   = 0;
-	_yaw_deg     = -90.0;
-	_mouse_lastX = 0;
-	_mouse_lastY = 0;
-	_first_mouse_call = true;
+  _pitch_deg   = 0;
+  _yaw_deg     = -90.0;
+  _mouse_lastX = 0;
+  _mouse_lastY = 0;
+  _first_mouse_call = true;
 
 	_speed = 0.05f;
 	_mouse_speed = _speed *2;
@@ -54,6 +54,10 @@ void Camera::set_camera(const glm::vec3 &position, const glm::vec3 &lookat, cons
 	_lookat_dir = glm::normalize(lookat - _position);
 
 	_camera = camera_setting(_position,_lookat_dir+_position,_up);
+
+  _pitch_deg   = 0;
+  _yaw_deg     = -90.0;
+
 	update();
 }
 
@@ -151,6 +155,8 @@ bool Camera::onMouse(int x, int y) {
   float xoffset = x - _mouse_lastX;
   float yoffset = _mouse_lastY - y;
 
+  if (xoffset + yoffset == 0) return false;
+
   if (!_lock_mouse_position) { 
   	_mouse_lastX = x;
   	_mouse_lastY = y;
@@ -188,3 +194,4 @@ void Camera::set_mouse_init_position(int x, int y) {
 void Camera::lock_mouse_position(bool lock) {
 	_lock_mouse_position = lock;
 }
+

@@ -358,12 +358,13 @@ void MySpecialKeyboard(int Key, int x, int y) {
 
 
 void MyMouse(int x, int y) {
-  global.camera.onMouse(x,y);
-
-  // Risposto il mouse al centro della finestra
-  glutWarpPointer(global.WINDOW_WIDTH/2, global.WINDOW_HEIGHT/2);
+  if (global.camera.onMouse(x,y)) {
+    // Risposto il mouse al centro della finestra
+    glutWarpPointer(global.WINDOW_WIDTH/2, global.WINDOW_HEIGHT/2);
+  }
   glutPostRedisplay();
 }
+
 
 // Funzione globale che si occupa di gestire la chiusura della finestra.
 void MyClose(void) {

@@ -25,8 +25,8 @@
 */
 struct global_struct {
 
-    int WINDOW_WIDTH  = 1366; // Larghezza della finestra 
-    int WINDOW_HEIGHT = 768; // Altezza della finestra
+    int WINDOW_WIDTH  = 1920; // Larghezza della finestra 
+    int WINDOW_HEIGHT = 1080; // Altezza della finestra
 
     GLuint VAO; // Vertex Array Object
 
@@ -214,10 +214,10 @@ void MySpecialKeyboard(int Key, int x, int y) {
 
 
 void MyMouse(int x, int y) {
-    global.camera.onMouse(x,y);
-
-    // Risposto il mouse al centro della finestra
-    glutWarpPointer(global.WINDOW_WIDTH/2, global.WINDOW_HEIGHT/2);
+    if (global.camera.onMouse(x,y)) {
+        // Risposto il mouse al centro della finestra
+        glutWarpPointer(global.WINDOW_WIDTH/2, global.WINDOW_HEIGHT/2);
+    }
     glutPostRedisplay();
 }
 

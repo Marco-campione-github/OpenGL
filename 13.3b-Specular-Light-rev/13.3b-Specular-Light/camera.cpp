@@ -31,9 +31,9 @@ void Camera::reset() {
 
   _pitch_deg   = 0;
   _yaw_deg     = -90.0;
-  _mouse_lastX = 0;
-  _mouse_lastY = 0;
-  _first_mouse_call = true;
+	_mouse_lastX = 0;
+	_mouse_lastY = 0;
+	_first_mouse_call = true;
 
 	_speed = 0.05f;
 	_mouse_speed = _speed *2;
@@ -155,6 +155,8 @@ bool Camera::onMouse(int x, int y) {
   float xoffset = x - _mouse_lastX;
   float yoffset = _mouse_lastY - y;
 
+  if (xoffset + yoffset == 0) return false;
+
   if (!_lock_mouse_position) { 
   	_mouse_lastX = x;
   	_mouse_lastY = y;
@@ -193,3 +195,6 @@ void Camera::lock_mouse_position(bool lock) {
 	_lock_mouse_position = lock;
 }
 
+const glm::vec3 &Camera::position() const {
+  return _position;
+}
